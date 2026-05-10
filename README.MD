@@ -1,163 +1,53 @@
-# AI Gym Planner
+# 🏋️‍♂️ AI Gym Planner | Full-Stack PERN Application
 
-A full-stack AI-powered fitness application that generates personalized workout plans based on user goals, experience level, workout frequency, and available equipment.
+An intelligent, production-ready workout architect that transforms user fitness profiles into personalized, data-driven training regimes. Built with the **PERN stack** (PostgreSQL, Express, React, Node.js) and integrated with **OpenAI/OpenRouter**.
 
-Built with React, TypeScript, Express, PostgreSQL, Prisma, and OpenRouter AI models.
+![License](https://img.shields.io/github/license/yourusername/PERN-Gym-AI-Planner)
+![Stars](https://img.shields.io/github/stars/yourusername/PERN-Gym-AI-Planner)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ---
 
-## Tech Stack
+## 🚀 Overview
+
+Stop guessing your sets and reps. The **AI Gym Planner** takes the friction out of fitness by leveraging LLMs to analyze your goals, equipment, and schedule. It generates a structured, multi-week training plan complete with RPE targets and progression strategies.
+
+### Core Features
+*   **Intelligent Onboarding:** A multi-step questionnaire to capture fitness levels, goals, and available equipment.
+*   **AI Logic Engine:** Powered by OpenRouter/OpenAI to generate structured JSON workout data.
+*   **Robust Persistence:** User profiles and plans are stored securely in a PostgreSQL database (Neon) using Prisma ORM.
+*   **Responsive UI:** A sleek, mobile-first dashboard built with Tailwind CSS for tracking workouts on the gym floor.
+*   **Secure Auth:** Integrated authentication flow via Neon/Clerk.
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
-- React
-- TypeScript
-- Tailwind CSS
-- React Router DOM
+*   **Framework:** React (Vite)
+*   **Language:** TypeScript
+*   **Styling:** Tailwind CSS
+*   **Routing:** React Router DOM
 
 ### Backend
-- Node.js
-- Express.js
-- Prisma ORM
-
-### Database
-- PostgreSQL
-- Neon
-
-### AI
-- OpenRouter API
-- OpenAI-Compatible Models
+*   **Server:** Node.js / Express
+*   **ORM:** Prisma
+*   **Database:** PostgreSQL (Neon)
+*   **AI:** OpenAI API / OpenRouter
 
 ---
 
-## Features
+## 📂 Project Structure
 
-- User authentication
-- AI-generated workout plans
-- Personalized onboarding flow
-- Weekly training schedules
-- Exercise recommendations
-- Sets, reps, and RPE tracking
-- Responsive UI
-- PostgreSQL data storage
-
----
-
-## Project Structure
-
-```bash
-ai-gym-planner/
-│
-├── client/
-├── server/
-├── prisma/
-├── .env
-└── README.md
-```
-
----
-
-## Environment Variables
-
-Create a `.env` file in the root directory.
-
-```env
-DATABASE_URL=
-OPENROUTER_API_KEY=
-AUTH_SECRET=
-PORT=5000
-```
-
----
-
-## Installation
-
-### Clone Repository
-
-```bash
-git clone https://github.com/your-username/ai-gym-planner.git
-cd ai-gym-planner
-```
-
-### Install Dependencies
-
-```bash
-# frontend
-cd client
-npm install
-
-# backend
-cd ../server
-npm install
-```
-
----
-
-## Database Setup
-
-```bash
-npx prisma migrate dev
-npx prisma generate
-```
-
----
-
-## Run Application
-
-### Backend
-
-```bash
-cd server
-npm run dev
-```
-
-### Frontend
-
-```bash
-cd client
-npm run dev
-```
-
----
-
-## AI Workflow
-
-1. User completes onboarding form
-2. Backend formats fitness data into AI prompts
-3. OpenRouter generates structured workout plans
-4. Plans are stored in PostgreSQL
-5. Frontend renders schedules and exercises dynamically
-
----
-
-## Screenshots
-
-Add project screenshots here.
-
-```md
-/assets/home.png
-/assets/dashboard.png
-/assets/workout-plan.png
-```
-
----
-
-## Future Improvements
-
-- Workout progress tracking
-- Nutrition planning
-- Analytics dashboard
-- PDF export
-- Mobile support
-- Subscription system
-
----
-
-## Credits
-
-Built while following the full-stack AI course by :contentReference[oaicite:0]{index=0}.
-
----
-
-## License
-
-This project is for educational and learning purposes.
+```text
+├── client/              # React frontend (Vite)
+│   ├── src/components   # Reusable UI components
+│   ├── src/pages        # Dashboard, Onboarding, Home
+│   └── src/hooks        # Custom React hooks
+├── server/              # Express backend
+│   ├── prisma/          # Database schema & migrations
+│   ├── routes/          # API endpoints
+│   └── controllers/     # Business logic & AI prompt engineering
+└── .env                 # Environment variables (API keys, DB URL)
