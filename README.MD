@@ -2,8 +2,7 @@
 
 An intelligent, production-ready workout architect that transforms user fitness profiles into personalized, data-driven training regimes. Built with the **PERN stack** (PostgreSQL, Express, React, Node.js) and integrated with **OpenAI/OpenRouter**.
 
-![License](https://img.shields.io/github/license/yourusername/PERN-Gym-AI-Planner)
-![Stars](https://img.shields.io/github/stars/yourusername/PERN-Gym-AI-Planner)
+
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
