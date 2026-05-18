@@ -5,23 +5,31 @@ import Profile from "./pages/Profile";
 import Auth from "./pages/Auth";
 import Account from "./pages/Account";
 import Navbar from "./components/layout/Navbar";
+import { NeonAuthUIProvider } from "@neondatabase/neon-js/auth/react";
+import { authClient } from "./lib/auth";
+import type { ComponentProps } from "react";
+
+type ExpectedAuthClientType = ComponentProps<typeof NeonAuthUIProvider>["authClient"];
+
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-black">
-        <Navbar/>
-        <main className="flex-1">
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/onboarding" element={<OnBoarding />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/auth/:pathname" element={<Auth />} />
-            <Route path="/account/:pathname" element={<Account />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+    <NeonAuthUIProvider authClient={authClient as unknown as ExpectedAuthClientType}>
+      <BrowserRouter>
+        <div className="min-h-screen flex flex-col bg-black">
+          <Navbar />
+          <main className="flex-1">
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="/onboarding" element={<OnBoarding />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/auth/:pathname" element={<Auth />} />
+              <Route path="/account/:pathname" element={<Account />} />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
+    </NeonAuthUIProvider>
   );
 };
 
