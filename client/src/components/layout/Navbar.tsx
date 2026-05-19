@@ -1,35 +1,31 @@
 import { Dumbbell } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
+import { useAuth } from "@/context/AuthContext";
 
 const Navbar = () => {
-  const user = true;
+  const {user} = useAuth();
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b  border-border backdrop-blur-md bg bg-black">
-      <div className="max-w-full px-8 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 text-foreground">
-          <Dumbbell className="w-6 h-6 text-accent" />
-          <span className="font-semibold text-lg text-accent-hover">GymAI</span>
+    <header className="fixed top-0 left-0 right-0 z-50 border-b  border-border backdrop-blur-md">
+       <div className="flex items-center justify-between px-6 h-16">
+        <Link to="/" className="flex items-center gap-2">
+          <Dumbbell className="size-5 text-emerald-500" />
+          <span className="font-medium">GymAI</span>
         </Link>
-        <nav className="gap-2 flex ">
+
+        <nav className="flex items-center gap-3">
           {user ? (
-            <>
-              <Link to="/auth/sign-in">
-                <Button className="text-white px-6 py-4 cursor-pointer" variant="ghost">
-                  My Plan
-                </Button>
-              </Link>
-            </>
+            <Link to="/dashboard">
+              <Button variant="ghost" size="sm" className="cursor-pointer py-5 px-4">My Plan</Button>
+            </Link>
           ) : (
             <>
               <Link to="/auth/sign-in">
-                <Button className="text-white px-6 py-4" variant="ghost">
-                  Sign in
-                </Button>
+                <Button variant="ghost" size="sm" className="cursor-pointer py-5 px-4">Sign in</Button>
               </Link>
               <Link to="/auth/signup">
-                <Button className="text-black bg-accent-hover px-3 py-4">
-                  Sign up
+                <Button size="sm" className="bg-emerald-500 hover:bg-emerald-600 text-white cursor-pointer px-4 py-4">
+                  Get started
                 </Button>
               </Link>
             </>
