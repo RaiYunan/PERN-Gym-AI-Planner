@@ -3,6 +3,7 @@ import { authClient } from "@/lib/auth";
 
 interface AuthContextType {
   user: Awaited<ReturnType<typeof authClient.getSession>>["data"]["user"] | null;
+  isLoading:boolean;
 }
 
 
@@ -10,6 +11,7 @@ const AuthContext = createContext<AuthContextType | null>(null);
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
   const [neonUser, setNeonUser] = useState<Awaited<ReturnType<typeof authClient.getSession>>["data"]["user"] | null>(null);
+  const [isLoading,setIsLoading]=useState(true);
 
   useEffect(() => {
     async function loadUser() {
@@ -23,13 +25,15 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       } catch (err) {
         console.log(err);
         setNeonUser(null);
+      }finally{
+        setIsLoading(false)
       }
     }
     loadUser();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: neonUser }}>
+    <AuthContext.Provider value={{ user: neonUser,isLoading }}>
       {children}
     </AuthContext.Provider>
   );

@@ -18,6 +18,7 @@ const App = () => {
   return (
     <NeonAuthUIProvider
       authClient={authClient as unknown as ExpectedAuthClientType}
+      defaultTheme="dark"
     >
       <AuthProvider>
         <BrowserRouter>
